@@ -1,0 +1,75 @@
+name: Restore omitted migration runners
+
+on:
+  push:
+    branches:
+      - repair/restore-morphology-runners
+    paths:
+      - .github/workflows/restore-migration-runners.yml
+
+permissions:
+  contents: write
+
+jobs:
+  restore-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repair branch
+        uses: actions/checkout@v4
+        with:
+          ref: repair/restore-morphology-runners
+          fetch-depth: 0
+
+      - name: Check out pinned CI-green source
+        uses: actions/checkout@v4
+        with:
+          repository: bardooran/somali-ai
+          ref: 5da2832ee9b7741f02e5483c77fc8c49022d191d
+          path: .migration-source
+
+      - name: Restore omitted benchmark runner layer
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp .migration-source/src/morphology_challenge_v*.py src/
+          cp .migration-source/src/morphology_paradigm_v*.py src/
+          cp .migration-source/src/giellalt_challenge_v*.py src/
+          cp .migration-source/src/giellalt_paradigm_v5.py src/
+          cp .migration-source/tests/test_morphology_challenge_*.py tests/
+          cp .migration-source/tests/test_morphology_paradigm_*.py tests/
+          rm -rf .migration-source
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test dependency
+        run: python -m pip install pytest
+
+      - name: Run full tests before committing
+        run: python -m pytest -q
+
+      - name: Run CI morphology entry points
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m src.morphology_challenge_v2 >/dev/null
+          for version in $(seq 5 20); do
+            python -m "src.morphology_paradigm_v${version}" >/dev/null
+          done
+
+      - name: Commit verified restoration and remove one-shot workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/restore-migration-runners.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src tests .github/workflows/restore-migration-runners.yml
+          if git diff --cached --quiet; then
+            echo "No restoration changes to commit"
+            exit 0
+          fi
+          git commit -m "Restore omitted morphology benchmark layer"
+          git push origin HEAD:repair/restore-morphology-runners
