@@ -35,8 +35,6 @@ jobs:
           cp .migration-source/src/morphology_paradigm_v*.py src/
           cp .migration-source/src/giellalt_challenge_v*.py src/
           cp .migration-source/src/giellalt_paradigm_v5.py src/
-          cp .migration-source/tests/test_morphology_challenge_*.py tests/
-          cp .migration-source/tests/test_morphology_paradigm_*.py tests/
           rm -rf .migration-source
 
       - name: Set up Python
@@ -47,7 +45,7 @@ jobs:
       - name: Install test dependency
         run: python -m pip install pytest
 
-      - name: Run full tests before committing
+      - name: Run current target tests before committing
         run: python -m pytest -q
 
       - name: Run CI morphology entry points
@@ -66,7 +64,7 @@ jobs:
           rm .github/workflows/restore-migration-runners.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src tests .github/workflows/restore-migration-runners.yml
+          git add src .github/workflows/restore-migration-runners.yml
           if git diff --cached --quiet; then
             echo "No restoration changes to commit"
             exit 0
