@@ -1,0 +1,4 @@
+{"rule_id": "AGE-EXPR-001", "pattern": r"\b(\d+|kow|laba|saddex|afhar|shanta|lix|todooba|sideed|sagaal|toban|labaatan|saddexdan)\s+jir\b", "description": "Standard Somali age expression N jir", "category": "Age Expressions"}
+{"rule_id": "AGE-EXPR-002", "pattern": r"\b(\d+|kow|laba|saddex|afhar|shanta|lix|todooba|sideed|sagaal|toban|labaatan|saddexdan)\s+jir\s+ah\b", "description": "Standard Somali relative age expression N jir ah", "category": "Age Expressions"}
+{"rule_id": "AGE-EXPR-003", "pattern": r"\bda'da\s+(\d+)-jirka\b", "description": "Definite age class expression da'da N-jirka", "category": "Age Expressions"}
+{"rule_id": "AGE-EXPR-004", "pattern": r"\b(carruur|dhallinyaro|waayeel|duq|odhay|garooc)\b", "description": "Somali age demographic categories", "category": "Age Expressions"}

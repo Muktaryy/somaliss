@@ -1,0 +1,62 @@
+{
+  "id": "MORPH-CONJ-IIA-MPH-001",
+  "status": "reviewed_rule_derived",
+  "part_of_speech": "verb",
+  "conjugation_class": "2A",
+  "scope": "finite_present_and_past",
+  "open_class_generation": false,
+  "correction_authority": false,
+  "present_morphology": {
+    "1sg": {"agreement": "", "tam": "aa"},
+    "2sg": {"agreement": "t", "tam": "aa"},
+    "3sg_m": {"agreement": "", "tam": "aa"},
+    "3sg_f": {"agreement": "t", "tam": "aa"},
+    "1pl": {"agreement": "n", "tam": "aa"},
+    "2pl": {"agreement": "t", "tam": "aan"},
+    "3pl": {"agreement": "", "tam": "aan"}
+  },
+  "past_morphology": {
+    "2sg": {"agreement": "t", "tam": "ay"}
+  },
+  "processes": {
+    "i_t_assibilation": {
+      "description": "A t-initial person-agreement marker surfaces as s after an i-final verb stem.",
+      "source": "Green & Morrison (2018), accepted manuscript pp. 23-24, explicitly gives kari+t+aa -> karisaa and describes t-assibilation after i. Puglielli & Cabdallah Cumar Mansuur (1997), Grammatica della lingua somala per le scuole medie superiori, pp. 97-98 of the grammar (PDF pp. 98-99), independently states that a t-initial ending after an i-final stem changes t to s and explicitly gives wey kari-s-ay (kari+t+ay) and waad joogi-s-ay (joogi+t+ay). Ahmed Mohamed (2013), An Overview of the Interface between Aspects of Somali Phonology and Morphology, p. 90 of the thesis (PDF p. 102), explicitly labels kari as C2A and prints the 2pl stem+<-taan> surface karisaan."
+    },
+    "i_vowel_glide": {
+      "description": "For the explicitly authorized i-final Conjugation-2 profile, y surfaces between the stem-final i and a vowel-initial present ending.",
+      "source": "Ahmed Mohamed (2013), An Overview of the Interface between Aspects of Somali Phonology and Morphology, p. 90 of the thesis (PDF p. 102), explicitly prints kari + <-aa> as kariyaa and kari + <-aan> as kariyaan. Green & Jones (2016), A first look at the morphophonology of Marka (Af-Ashraaf) and a comparison to its neighbors, table 24, independently prints the Northern/Benaadir Somali weak-causative present forms kariyaa and kariyaan."
+    },
+    "i_n_weak_causative_manner_alternation": {
+      "description": "In the explicitly authorized weak-causative 1pl cell, the i-final weak-causative extension is realized with n before the nasal person marker, yielding orthographic -inn- before -aa.",
+      "source": "Christopher R. Green, Somali Grammar, section 7.1.5 states that the weak causative extension is realized as -in before a nasal; section 7.5.1.1 table 48 prints weak-causative 1pl buubinnaa and notes weak-causative manner alternation in 1pl. Green & Jones (2016), table 24, independently prints the Northern/Benaadir Somali weak-causative 1pl surface karinnaa."
+    }
+  },
+  "profiles": {
+    "kari": {
+      "authorized_present_persons": ["1sg", "2sg", "3sg_m", "3sg_f", "1pl", "2pl", "3pl"],
+      "authorized_past_persons": [],
+      "processes": ["i_t_assibilation", "i_vowel_glide", "i_n_weak_causative_manner_alternation"],
+      "class_evidence": "Saeed (1999), Somali, uses kari as the Conjugation 2A example verb; Green & Morrison (2018) also treats kari as an i-final stem in its explicit assibilation example; Ahmed Mohamed (2013) independently labels kari as C2A in the present-tense table.",
+      "development_evidence": "The original Green & Morrison slice authorizes present 2sg/3sg feminine karisaa. Ahmed Mohamed (2013), thesis p. 90 (PDF p. 102), additionally prints kariyaa for 1sg and 3sg masculine, karisaan for 2pl, and kariyaan for 3pl; Green & Jones (2016), table 24, corroborates those standard Somali weak-causative surfaces and explicitly prints 1pl karinnaa. Christopher R. Green's Somali Grammar independently supplies the structural weak-causative evidence for the missing 1pl cell: -i is realized as -in before a nasal, and table 48 prints the analogous weak-causative 1pl buubinnaa. This completes only kari's reviewed present paradigm; no kari past cell is inferred."
+    },
+    "joogi": {
+      "authorized_present_persons": [],
+      "authorized_past_persons": ["2sg"],
+      "processes": ["i_t_assibilation"],
+      "class_evidence": "Puglielli & Cabdallah Cumar Mansuur (1997), section 6.3.2.1, describes the causative -in/-i extension and treats the i-final derived stem as the locus for Conjugation-II-style suffixal sound changes.",
+      "development_evidence": "Puglielli & Cabdallah Cumar Mansuur (1997), PDF p. 99, explicitly prints waad joogi-s-ay and decomposes it as joogi+t+ay while stating that t changes to s when attached to the same kind of i-final stem. Only this printed 2sg past form is authorized."
+    }
+  },
+  "benchmark_isolation": {
+    "v5_answers_used_as_runtime_evidence": false,
+    "v6_answers_used_as_runtime_evidence": false,
+    "v7_answers_used_as_runtime_evidence": false,
+    "v8_answers_used_as_runtime_evidence": false,
+    "v9_answers_used_as_runtime_evidence": false,
+    "v10_answers_used_as_runtime_evidence": false,
+    "frozen_benchmark_profile_lemmas_allowed": false,
+    "note": "Runtime profiles are authorized from independent development sources, not frozen benchmark answers. Generation is finite, lemma-specific, tense-specific, and person-specific. Fayruus v9 and Hersi v10 remain evaluation-only."
+  },
+  "notes": "Finite Conjugation-2A morphophonology only. kari now has all seven reviewed present person cells but still no past generation; joogi is past 2sg only. The runtime does not infer other i-final lemmas, does not reverse-strip endings, does not fill unreviewed tense cells, and grants no correction authority."
+}

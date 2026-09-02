@@ -1,0 +1,81 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test dependency
+        run: python -m pip install pytest
+
+      - name: Run tests
+        run: python -m pytest -q
+
+      - name: Print competitive morphology scoreboard
+        run: python -m src.morphology_competition
+
+      - name: Print morphology benchmark v1
+        run: python -m src.morphology_benchmark
+
+      - name: Print analyzer-blind morphology challenge v2
+        run: python -m src.morphology_challenge_v2
+
+      - name: Print independent morphology paradigm v5 baseline
+        run: python -m src.morphology_paradigm_v5
+
+      - name: Print frozen morphology paradigm v6 measurement
+        run: python -m src.morphology_paradigm_v6
+
+      - name: Print frozen morphology paradigm v7 baseline
+        run: python -m src.morphology_paradigm_v7
+
+      - name: Print frozen Class-I morphology paradigm v8 baseline
+        run: python -m src.morphology_paradigm_v8
+
+      - name: Print frozen Conjugation-2 morphology paradigm v9 baseline
+        run: python -m src.morphology_paradigm_v9
+
+      - name: Print frozen Conjugation-2A finite present morphology paradigm v10 baseline
+        run: python -m src.morphology_paradigm_v10
+
+      - name: Print frozen preauthorized C2A generalization paradigm v11 baseline
+        run: python -m src.morphology_paradigm_v11
+
+      - name: Print frozen multi-source C2A natural 3pl paradigm v12 baseline
+        run: python -m src.morphology_paradigm_v12
+
+      - name: Print frozen C2A reserve verification paradigm v13 baseline
+        run: python -m src.morphology_paradigm_v13
+
+      - name: Print frozen preselected C2A 2pl past paradigm v14 baseline
+        run: python -m src.morphology_paradigm_v14
+
+      - name: Print frozen preselected C2A 2sg past paradigm v15 baseline
+        run: python -m src.morphology_paradigm_v15
+
+      - name: Print frozen preselected C2A 1pl past paradigm v16 baseline
+        run: python -m src.morphology_paradigm_v16
+
+      - name: Print frozen preselected C2A 1sg past paradigm v17 baseline
+        run: python -m src.morphology_paradigm_v17
+
+      - name: Print frozen preselected C2A 3sg masculine past paradigm v18 baseline
+        run: python -m src.morphology_paradigm_v18
+
+      - name: Print frozen preselected C2A 3sg feminine past paradigm v19 baseline
+        run: python -m src.morphology_paradigm_v19
+
+      - name: Print frozen C2A imperative and infinitive paradigm v20
+        run: python -m src.morphology_paradigm_v20

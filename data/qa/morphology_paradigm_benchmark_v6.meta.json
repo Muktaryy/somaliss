@@ -1,0 +1,33 @@
+{
+  "benchmark_version": "v6",
+  "benchmark_name": "Independent morphology paradigm challenge v6",
+  "manifest_path": "data/qa/morphology_paradigm_benchmark_v6.jsonl",
+  "manifest_git_blob_sha": "0e806d842efbaf287673b2cbb95d09357c2423c1",
+  "freeze_commit": "07e65e6bf792abb3aebab7c84ab19674984b6e67",
+  "pre_freeze_runtime_commit": "2e4baf8518a14ba123084aed0810ea80aaa426a3",
+  "runtime_blob_identities": {
+    "data/master/recognition_index.jsonl": "39904c40cc84fade625f7af87f8848836e219638",
+    "src/master_recognition.py": "92f719bc5745aa9beea43bec5e96476c8a932906",
+    "src/morphology_candidates.py": "ebb535494e9e399992daee8c216448e4c740834f"
+  },
+  "source_family": "Orwin 1995 Colloquial Somali",
+  "publisher": "Routledge",
+  "source_url": "https://api.pageplace.de/preview/DT0400.9781317306375_A25638537/preview-9781317306375_A25638537.pdf",
+  "source_pages": [25, 26],
+  "positive_case_count": 21,
+  "positive_unique_surface_count": 19,
+  "unknown_case_count": 8,
+  "total_case_count": 29,
+  "pre_freeze_overlap_status": "measured",
+  "measured_result": {
+    "workflow_run_id": 33444080026,
+    "tested_head_commit": "b5826c7629dd5a8f981dbbd8d1f26637ecd89123",
+    "somali_ai_combined_positive_surface_recognition": "0/19",
+    "somali_ai_combined_comparable_feature_rows": "0/21",
+    "somali_ai_master_positive_surface_recognition": "0/19",
+    "somali_ai_reviewed_rule_derived_positive_surface_recognition": "0/19",
+    "unknown_safety": "8/8 for combined runtime and master exact",
+    "full_test_suite": "1015/1015 passed"
+  },
+  "notes": "Frozen before any post-v5 generative morphology expansion. Source author/family is independent of Nilsson v5 and Qaamuus-derived v2-v4. Benchmark includes a full dhis past paradigm plus explicit morphophonological past-tense examples. The first post-freeze measurement found zero reviewed-rule-derived v6 hits, preserving holdout isolation while establishing a 0/19 combined-recognition and 0/21 deep-feature baseline."
+}

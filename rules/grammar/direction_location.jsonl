@@ -1,0 +1,3 @@
+{"rule_id": "DIR-LOC-001", "pattern": r"\b(woqooyi|koonfur|bari|galbeed)\b", "description": "Cardinal compass directions in Somali", "category": "Direction & Location"}
+{"rule_id": "DIR-LOC-002", "pattern": r"\b(u dhow|ka fog|dhexdeeda|dhexdiisa|horaga|dhabarka|sare|hoose|dhinaca|xagga)\b", "description": "Spatial proximity and location preverbs", "category": "Direction & Location"}
+{"rule_id": "DIR-LOC-003", "pattern": r"\b(woqooyi-galbeed|woqooyi-bari|koonfur-galbeed|koonfur-bari)\b", "description": "Compound cardinal directions in Somali", "category": "Direction & Location"}
